@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      navigatingTo="navigatingTo"
+      class="page">
+    <ActionBar title="Multilingual Translator" class="bg-transparent text-white">
+        <NavigationButton visibility="collapsed" />
+        <Label text="🌍" class="text-2xl mr-2" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-6 space-y-4">
+            <!-- Input Section -->
+            <Label text="Enter or capture text" class="text-white text-lg font-bold" />
+            <TextView
+                text="{{ inputText }}"
+                hint="Type or capture text here..."
+                class="text-area"
+                height="120"
+                textWrap="true" />
+            
+            <!-- Camera Button -->
+            <Button
+                text="📷 Capture Text"
+                tap="{{ onCameraCapture }}"
+                class="action-button"
+                fontSize="18" />
+            
+            <!-- Language Selection -->
+            <Label text="Target Language" class="text-white text-lg font-bold mt-4" />
+            <ListPicker
+                items="{{ languages }}"
+                selectedIndex="{{ selectedLanguageIndex }}"
+                class="language-picker" />
+            
+            <!-- Translation Result -->
+            <Label text="Translation" class="text-white text-lg font-bold mt-4" />
+            <StackLayout class="translation-result">
+                <Label text="{{ translatedText }}" textWrap="true" 
+                       class="text-lg" />
+            </StackLayout>
+            
+            <!-- Audio Controls -->
+            <GridLayout columns="*, *" rows="auto" class="mt-4">
+                <Button
+                    text="🔊 Original"
+                    tap="{{ playOriginalText }}"
+                    class="action-button m-1"
+                    col="0" />
+                <Button
+                    text="🔊 Translation"
+                    tap="{{ playTranslatedText }}"
+                    class="action-button m-1"
+                    col="1" />
+            </GridLayout>
+            
+            <!-- Loading Indicator -->
+            <ActivityIndicator
+                busy="{{ isProcessing }}"
+                color="white"
+                width="32"
+                height="32"
+                class="mt-4" />
+        </StackLayout>
+    </ScrollView>
+</Page>

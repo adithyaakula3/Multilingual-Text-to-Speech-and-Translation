@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+  background: linear-gradient(135deg, #4c669f, #3b5998, #192f6a);
+}
+
+.action-button {
+  @apply bg-white text-blue-600 font-bold py-3 px-4 rounded-lg shadow-md;
+}
+
+.text-area {
+  @apply bg-white/90 rounded-lg shadow-lg p-4 my-2;
+}
+
+.language-picker {
+  @apply bg-white/90 rounded-lg shadow-md p-2 my-2;
+}
+
+.translation-result {
+  @apply bg-white/90 rounded-lg shadow-lg p-4 my-2 min-h-[100];
+}
+
+.icon {
+  font-family: "Material Icons", "MaterialIcons-Regular";
+  font-size: 24;
+}
